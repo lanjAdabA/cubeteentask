@@ -3,6 +3,8 @@
 import 'package:cubetentask/pages/chart.page.dart';
 import 'package:cubetentask/pages/detail.page.dart';
 import 'package:cubetentask/pages/home.page.dart';
+import 'package:cubetentask/pages/loggedin.page.dart';
+import 'package:cubetentask/pages/signin.page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -27,6 +29,11 @@ final GoRouter _router = GoRouter(
           builder: (BuildContext context, GoRouterState state) {
             return const ChartScreen();
           },
+        ),GoRoute(
+          path: 'signin',
+          builder: (BuildContext context, GoRouterState state) {
+            return const SigninPage();
+          },
         ),
       ],
     ),
@@ -41,6 +48,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+       debugShowCheckedModeBanner:  false
+       ,
       routerConfig: _router,
     );
   }
