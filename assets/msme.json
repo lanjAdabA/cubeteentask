@@ -1,74 +1,5 @@
-{
-    "index_name": "6256cf88-1cf8-49e9-bc2e-6bffdef4f2d6",
-    "title": "State-wise distribution of enterprises by status of operation (Fourth All India Census of MSME)",
-    "desc": "State-wise distribution of enterprises by status of operation (Fourth All India Census of MSME)",
-    "org_type": "Central",
-    "org": [
-        "Ministry of Micro, Small and Medium Enterprises"
-    ],
-    "sector": [
-        "Industries",
-        "Medium",
-        "Micro",
-        "Small Scale"
-    ],
-    "source": "data.gov.in",
-    "catalog_uuid": "b7664d10-dced-475f-b86c-c47a2204be01",
-    "visualizable": "1",
-    "active": "1",
-    "created": 1668766347,
-    "updated": 1668766234,
-    "created_date": "2022-11-18T11:12:27Z",
-    "updated_date": "2022-11-18T15:40:34Z",
-    "external_ws": 0,
-    "external_ws_url": "",
-    "target_bucket": {
-        "index": "api",
-        "type": "b7664d10-dced-475f-b86c-c47a2204be01",
-        "field": "6256cf88-1cf8-49e9-bc2e-6bffdef4f2d6"
-    },
-    "field": [
+ [
         {
-            "id": "sl_no_",
-            "name": "Sl.No.",
-            "type": "keyword"
-        },
-        {
-            "id": "state_ut",
-            "name": "STATE/UT",
-            "type": "keyword"
-        },
-        {
-            "id": "working",
-            "name": "WORKING",
-            "type": "double"
-        },
-        {
-            "id": "closed",
-            "name": "CLOSED",
-            "type": "double"
-        },
-        {
-            "id": "non_traceable",
-            "name": "NON-TRACEABLE",
-            "type": "double"
-        },
-        {
-            "id": "_total",
-            "name": "TOTAL",
-            "type": "double"
-        }
-    ],
-    "message": "Resource lists",
-    "version": "2.2.0",
-    "status": "ok",
-    "total": 36,
-    "count": 35,
-    "limit": "35",
-    "offset": "0",
-    "records": [
-        {
-            "sl_no_": "1",
             "state_ut": "JAMMU & KASHMIR",
             "working": 14993,
             "closed": 1831,
@@ -76,7 +7,6 @@
             "_total": 18345
         },
         {
-            "sl_no_": "2",
             "state_ut": "HIMACHAL PRADESH",
             "working": 11931,
             "closed": 4034,
@@ -348,4 +278,3 @@
             "_total": 1034
         }
     ]
-}

@@ -1,6 +1,7 @@
-// ignore_for_file: library_private_types_in_public_api, non_constant_identifier_names
+// ignore_for_file: library_private_types_in_public_api, non_constant_identifier_names, unused_field
 
 import 'dart:convert';
+import 'package:cubetentask/model/msmeDataModel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -16,13 +17,14 @@ class ChartScreen extends StatefulWidget {
 }
 
 class _ChartScreenState extends State<ChartScreen> {
-  List<MsmeModel> chartData = [];
+  List<RecordFile > chartData = [];
 
-  Future loadMsmeModel() async {
+  Future loadRecord() async {
     final String jsonString = await getJsonFromAssets();
     final dynamic jsonResponse = json.decode(jsonString);
     for (Map<String, dynamic> i in jsonResponse) {
-      chartData.add(MsmeModel.fromJson(i));
+      //  print(jsonString.toString());
+      chartData.add(RecordFile.fromJson(i));
     }
   }
 
@@ -32,7 +34,7 @@ class _ChartScreenState extends State<ChartScreen> {
 
   @override
   void initState() {
-    loadMsmeModel();
+    loadRecord();
     super.initState();
   }
 
@@ -48,15 +50,32 @@ class _ChartScreenState extends State<ChartScreen> {
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
                     return SfCartesianChart( 
-                        primaryXAxis: CategoryAxis(maximum: 35),
+                        primaryXAxis: CategoryAxis(maximum: 34),
                         // Chart title
                         title: ChartTitle(text: 'state_wise'),
-                        series: <ChartSeries<MsmeModel, String>>[
-                          BarSeries<MsmeModel, String>(
+                        series: <ChartSeries<RecordFile, String>>[
+
+                          
+                          BarSeries<RecordFile, String>(
                             dataSource: chartData,
-                            xValueMapper: (MsmeModel msmeModel, _) => msmeModel.state_ut,
-                            yValueMapper: (MsmeModel msmeModel, _) => msmeModel.working,
-                          )
+                            xValueMapper: (RecordFile msme, _) => msme.stateUt,
+                            yValueMapper: (RecordFile msme, _) => msme.working,
+                            
+                          ),
+                             BarSeries<RecordFile, String>(
+                            dataSource: chartData,
+                            xValueMapper: (RecordFile msme, _) => msme.stateUt,
+                            yValueMapper: (RecordFile msme, _) => msme.closed,
+                          ),             BarSeries<RecordFile, String>(
+                            dataSource: chartData,
+                            xValueMapper: (RecordFile msme, _) => msme.stateUt,
+                            yValueMapper: (RecordFile msme, _) => msme.nonTraceable,
+                          ),           
+                            BarSeries<RecordFile, String>(
+                            dataSource: chartData,
+                            xValueMapper: (RecordFile msme, _) => msme.stateUt,
+                            yValueMapper: (RecordFile msme, _) => msme.total,
+                          ),
                         ]);
                   } else {
                     return Card(
@@ -91,15 +110,15 @@ class _ChartScreenState extends State<ChartScreen> {
 }
 
 class MsmeModel {
-  MsmeModel(this.state_ut, this.working);
+  MsmeModel(this.state_ut, this.working, this.closed, this.non_traceable, this._total);
 
   final String state_ut;
-  final double? working;
+  final double? working; final double? closed; final double? non_traceable; final double? _total;
 
   factory MsmeModel.fromJson(Map<String, dynamic> parsedJson) {
     return MsmeModel(
-      parsedJson['state_ut'].toString(),
-      parsedJson['working'],
+      parsedJson['state_ut'],
+      parsedJson['working'], parsedJson['closed'], parsedJson['non_traceable'], parsedJson['_total'],
     );
   }
 }

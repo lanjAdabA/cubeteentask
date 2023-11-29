@@ -50,7 +50,7 @@ class ListData extends StatelessWidget {
                       ListView.builder(
                           physics: const BouncingScrollPhysics(),
                           shrinkWrap: true,
-                          itemCount: controller.msmedata!.records.length,
+                          itemCount: controller.msmedata!.recordFiles.length,
                           itemBuilder: (context, i) {
                             return 
                             
@@ -66,14 +66,14 @@ class ListData extends StatelessWidget {
                                   //? sl n state/ut
                                   Row(   children: [Row(
                                   children: [
-                                    const Text("Sl. ", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 24),), Text(controller.msmedata!.records[i].slNo,style: const TextStyle(color: Colors.blueGrey, fontWeight: FontWeight.bold, fontSize: 24),),
+                                    const Text("Sl. ", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 24),), Text(controller.msmedata!.recordFiles[i].slNo,style: const TextStyle(color: Colors.blueGrey, fontWeight: FontWeight.bold, fontSize: 24),),
                                      const SizedBox(width: 32,)
                                   ],
 
                                 ), Row(
                                   children: [
                                     const Text("State/ UT:   ",style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),),
-                                     Text(controller.msmedata!.records[i].stateUt,style: const TextStyle(color: Colors.blueGrey, fontWeight: FontWeight.bold, fontSize: 20),)
+                                     Text(controller.msmedata!.recordFiles[i].stateUt,style: const TextStyle(color: Colors.blueGrey, fontWeight: FontWeight.bold, fontSize: 20),)
                                   ],
                                 )],)
                                 ,
@@ -81,27 +81,27 @@ class ListData extends StatelessWidget {
                                 //? working and close
                                    Row(
                                                                      children: [
-                                                                       const Text("Working : ", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),), Text(controller.msmedata!.records[i].working.toString(),style: const TextStyle(color: Colors.blueGrey, fontWeight: FontWeight.bold, fontSize: 20),),
+                                                                       const Text("Working : ", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),), Text(controller.msmedata!.recordFiles[i].working.toString(),style: const TextStyle(color: Colors.blueGrey, fontWeight: FontWeight.bold, fontSize: 20),),
                                                                         const SizedBox(width: 32,)
                                                                      ],
                                    
                                                                    ), Row(
                                                                      children: [
                                                                        const Text("Close : ",style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),),
-                                                                        Text(controller.msmedata!.records[i].closed.toString(),style: const TextStyle(color: Colors.blueGrey, fontWeight: FontWeight.bold, fontSize: 20),)
+                                                                        Text(controller.msmedata!.recordFiles[i].closed.toString(),style: const TextStyle(color: Colors.blueGrey, fontWeight: FontWeight.bold, fontSize: 20),)
                                                                      ],
                                                                    ),
                                   //? nontrackable and total
                                    Row(
                                                                      children: [
-                                                                       const Text("non traceable : ", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),), Text(controller.msmedata!.records[i].nonTraceable.toString(),style: const TextStyle(color: Colors.blueGrey, fontWeight: FontWeight.bold, fontSize: 20),),
+                                                                       const Text("non traceable : ", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),), Text(controller.msmedata!.recordFiles[i].nonTraceable.toString(),style: const TextStyle(color: Colors.blueGrey, fontWeight: FontWeight.bold, fontSize: 20),),
                                                                         const SizedBox(width: 32,)
                                                                      ],
                                    
                                                                    ), Row(
                                                                      children: [
                                                                        const Text("Total:   ",style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),),
-                                                                        Text(controller.msmedata!.records[i].total.toString(),style: const TextStyle(color: Colors.blueGrey, fontWeight: FontWeight.bold, fontSize: 20),)
+                                                                        Text(controller.msmedata!.recordFiles[i].total.toString(),style: const TextStyle(color: Colors.blueGrey, fontWeight: FontWeight.bold, fontSize: 20),)
                                                                      ],
                                                                    )
                                 ],),),
