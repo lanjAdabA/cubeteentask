@@ -5,8 +5,8 @@ import 'package:http/http.dart' as http;
 
 class GetXTapController extends GetxController{
   var isDataLoading =false.obs;
-  MsmeModel? _msmedata;
-   get msmedata=>_msmedata;
+  MsmeModel? msmedata;
+  //  get msmedata=>_msmedata;
 @override
 Future<void> onInit() async{
   super.onInit();
@@ -42,7 +42,7 @@ final response = await http.get(Uri.https("api.data.gov.in",
 
  if (response.statusCode==200){
   var datas= msmeModelFromJson(response.body);
-   _msmedata=datas;
+   msmedata=datas;
     print("Successfully get data");
 
  }

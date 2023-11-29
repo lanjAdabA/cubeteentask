@@ -4,22 +4,19 @@ import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 
 /// The details screen
-class DetailsScreen extends StatelessWidget {
-  /// Constructs a [DetailsScreen]
-  const DetailsScreen({super.key});
+class AboutScreen extends StatelessWidget {
+  /// Constructs a [AboutScreen]
+  const AboutScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     GetXTapController controller=Get.put(GetXTapController());
     controller.getmsmedata();
-     return Scaffold( appBar: AppBar(title:  const Text( "Details Page"),leading: GestureDetector(child: const Icon(Icons.arrow_back, ), onTap: () => context.go('/home'),), actions: [InkWell(child: const Padding(
-     padding: EdgeInsets.symmetric(horizontal:12.0),
-     child: Icon( Icons.info),
-   ), onTap: () => context.go('/about'),),],),
+     return Scaffold( 
       body: Container( height: double.infinity, width:  double.infinity,
         decoration:  const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/one2.jpg"), opacity: .3,
+            image: AssetImage("assets/one7.jpg"), opacity: .3,
             fit: BoxFit.cover,
           ),
         ),
@@ -27,12 +24,15 @@ class DetailsScreen extends StatelessWidget {
     children: [
       Center(
         child: Column( mainAxisAlignment:  MainAxisAlignment.center,
-          children: [ const Text("Detailed data to be shown here.", style: TextStyle(fontSize: 22),),
+          children: [ const Padding(
+            padding: EdgeInsets.all(22.0),
+            child: Text("This is a test project, the task is to retrive data from an api and visually represent the retrived data via a chart, the data and information are used just for demondtration purpose and are not suppose to provide any info or lead anyone in anyway", style: TextStyle(fontSize: 22),),
+          ),
            const SizedBox(height: 20,),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal:18.0),
-              child: Text(controller.msmedata!.toJson().toString(), style:  TextStyle( fontSize: 14, fontStyle: FontStyle.normal, fontWeight: FontWeight.bold, color: Colors.red[800]),),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.symmetric(horizontal:18.0),
+            //   child: Text(controller.msmedata!.toJson().toString(), style:  TextStyle( fontSize: 14, fontStyle: FontStyle.normal, fontWeight: FontWeight.bold, color: Colors.red[800]),),
+            // ),
            const SizedBox(height: 20,),
             Text(controller.msmedata!.toString()),
 

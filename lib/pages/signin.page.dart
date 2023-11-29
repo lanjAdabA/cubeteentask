@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 class SigninPage extends StatefulWidget {
   const SigninPage({super.key});
 //? hide keyboard when not in focus
+  @override
   State<SigninPage> createState() => _SigninPageState();
 }
 FocusNode _focusNodeEmail = FocusNode();
@@ -15,7 +16,10 @@ FocusNode _focusNodePassword = FocusNode();
   @override
 
 class _SigninPageState extends State<SigninPage> {
-  @override
+    final GlobalKey<FormState> formkey = GlobalKey<FormState>();
+
+   TextEditingController userNameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   bool obscurePassword = true;
   void togglePasswordObscure() {
@@ -24,6 +28,7 @@ class _SigninPageState extends State<SigninPage> {
     });
   }
 
+  @override
   Widget build(BuildContext context) {
      double height = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -57,7 +62,7 @@ class _SigninPageState extends State<SigninPage> {
                       ),
                       //! username field
                       Form(
-                        // key: formkey,
+                        key: formkey,
                         child: Column(
                           children: [
                             Padding(
@@ -70,8 +75,8 @@ class _SigninPageState extends State<SigninPage> {
                                   padding: const EdgeInsets.all(8.0),
                                   child: FocusScope(
                                     child: TextFormField(
-                                      // autovalidateMode:
-                                      //     AutovalidateMode.onUserInteraction,
+                                      autovalidateMode:
+                                          AutovalidateMode.onUserInteraction,
                                       focusNode: _focusNodeEmail,
                                       validator: (value) {
                                         if (value == null || value.isEmpty) {
@@ -80,7 +85,7 @@ class _SigninPageState extends State<SigninPage> {
                                         }
                                         return null;
                                       },
-                                      // controller: userNameController,
+                                      controller: userNameController,
                                       keyboardType: TextInputType.emailAddress,
                                       decoration: const InputDecoration(
                                           prefixIcon:
@@ -117,8 +122,8 @@ class _SigninPageState extends State<SigninPage> {
                                   padding: const EdgeInsets.all(8.0),
                                   child: FocusScope(
                                     child: TextFormField(
-                                      // autovalidateMode:
-                                      //     AutovalidateMode.onUserInteraction,
+                                      autovalidateMode:
+                                          AutovalidateMode.onUserInteraction,
                                       focusNode: _focusNodePassword,
                                       validator: (value) {
                                         if (value == null || value.isEmpty) {
@@ -132,7 +137,7 @@ class _SigninPageState extends State<SigninPage> {
 
                                       keyboardType:
                                           TextInputType.visiblePassword,
-                                      // controller: passwordController,
+                                      controller: passwordController,
                                       obscureText: obscurePassword,
                                       decoration: InputDecoration(
                                           suffixIcon: GestureDetector(
@@ -190,37 +195,35 @@ class _SigninPageState extends State<SigninPage> {
                               ),
                               onPressed: () {
                                 log("_pressed Login button"); 
-                               context.go('/');
+                              //  context.go('/');
 
                                 //? newmethod of validation check, common key is checked for validation instead of individual key
-                                // if (formkey.currentState!.validate()) {
-                                //   context.read<LoginCubit>().loginUser(
-                                //       email: userNameController.text,
-                                //       password: passwordController.text);
-                                // }
-                                //? else part -to show alertdialog showing login error message
-                                // else {
-                                //   log("_login_error_empty field/fields");
-                                //   showDialog(
-                                //     context: context,
-                                //     builder: (BuildContext context) {
-                                //       return AlertDialog(
-                                //         title: const Text('Login Error'),
-                                //         content: const Text(
-                                //             'All fields are required'),
-                                //         actions: <Widget>[
-                                //           TextButton(
-                                //             child: const Text('OK'),
-                                //             onPressed: () {
-                                //               Navigator.of(context).pop();
-                                //             },
-                                //           ),
-                                //         ],
-                                //       );
-                                //     },
-                                //   );
-                                // }
-                              },
+                              if (userNameController.text=="admin" && passwordController.text=="admin"   
+                              ) {
+                                 log("paswrd and userid field");
+                                context.go('/home');
+                              } else {
+                                    log("_login_error_empty field/fields");
+                                    showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return AlertDialog(
+                                          title: const Text('Login Error'),
+                                          content: const Text(
+                                              'All fields are required'),
+                                          actions: <Widget>[
+                                            TextButton(
+                                              child: const Text('OK'),
+                                              onPressed: () {
+                                                Navigator.of(context).pop();
+                                              },
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                  }
+                                },
                               child: const Text('Login'),
                             ),
                           ),
@@ -228,8 +231,18 @@ class _SigninPageState extends State<SigninPage> {
                       ),
 
                       SizedBox(
-                        height: height / 12,
+                        height: height / 24,
                       ),
+                        GestureDetector( onTap:()=>context.go('/home') ,
+                          child: const Center(
+                          child: Text(
+                            "Login as GUEST",
+                            style: TextStyle( color: Color.fromARGB(255, 41, 102, 164),
+                                fontSize: 22, fontWeight: FontWeight.bold),
+                          ),
+                                              ),
+                        ),
+                       const SizedBox(height: 32,),
                       const Center(
                         child: Text(
                           "Please provide correct credentials",
@@ -246,6 +259,6 @@ class _SigninPageState extends State<SigninPage> {
                   ),
                 ),
               ),
-            ));;
+            ));
   }
 }
