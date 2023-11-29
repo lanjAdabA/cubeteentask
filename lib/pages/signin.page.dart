@@ -237,8 +237,8 @@ class _SigninPageState extends State<SigninPage> {
                           child: const Center(
                           child: Text(
                             "Login as GUEST",
-                            style: TextStyle( color: Color.fromARGB(255, 41, 102, 164),
-                                fontSize: 22, fontWeight: FontWeight.bold),
+                            style: TextStyle( color: Colors.blue,
+                                fontSize: 22, fontWeight: FontWeight.bold, decoration: TextDecoration.underline, decorationStyle: TextDecorationStyle.solid, decorationColor: Colors.blue)
                           ),
                                               ),
                         ),

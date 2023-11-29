@@ -61,19 +61,15 @@ class _HomeScreenState extends State<HomeScreen> {
   mainAxisSpacing: 10,
   crossAxisCount: 2,
   children: <Widget>[
-    Stack( fit: StackFit.passthrough,
-  children: [
-     const Center(child: Text("data", )),
-     GestureDetector(
-      child: Container(
-        padding: const EdgeInsets.all(8),
-        color: Colors.teal[200],
-        child:  Image.asset("assets/graph.png", fit: BoxFit.fitWidth,),
-      ),
-       onTap: () => context.go('/chart'),
-    ),
-  ],
-    ),
+   
+    GestureDetector(
+     child: Container(
+       padding: const EdgeInsets.all(8),
+       color: Colors.teal[200],
+       child:  Image.asset("assets/graph.png", fit: BoxFit.fitWidth,),
+     ),
+      onTap: () => context.go('/chart'),
+        ),
     GestureDetector(
       child: Container(
         padding: const EdgeInsets.all(8),

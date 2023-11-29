@@ -5,7 +5,6 @@ import 'package:cubetentask/pages/about.page%20.dart';
 import 'package:cubetentask/pages/chart.page.dart';
 import 'package:cubetentask/pages/detail.page.dart';
 import 'package:cubetentask/pages/home.page.dart';
-import 'package:cubetentask/pages/loggedin.page.dart';
 import 'package:cubetentask/pages/signin.page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -18,13 +17,13 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return const SigninPage();
+        return const HomeScreen();
       },
       routes: <RouteBase>[
           GoRoute(
-          path: 'home',
+          path: 'signin',
           builder: (BuildContext context, GoRouterState state) {
-            return const HomeScreen();
+            return const SigninPage();
           },
         ), 
         GoRoute(
@@ -35,7 +34,7 @@ final GoRouter _router = GoRouter(
         ),    GoRoute(
           path: 'chart',
           builder: (BuildContext context, GoRouterState state) {
-            return const ChartScreen();
+            return  ChartScreen();
           },
         ),GoRoute(
           path: 'list',

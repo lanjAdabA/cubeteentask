@@ -12,14 +12,14 @@ class DetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     GetXTapController controller=Get.put(GetXTapController());
     controller.getmsmedata();
-     return Scaffold( appBar: AppBar(title:  const Text( "Details Page"),leading: GestureDetector(child: const Icon(Icons.arrow_back, ), onTap: () => context.go('/home'),), actions: [InkWell(child: const Padding(
+     return Scaffold( appBar: AppBar(title:  const Text( "Details Page"), actions: [InkWell(child: const Padding(
      padding: EdgeInsets.symmetric(horizontal:12.0),
      child: Icon( Icons.info),
    ), onTap: () => context.go('/about'),),],),
       body: Container( height: double.infinity, width:  double.infinity,
         decoration:  const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/one2.jpg"), opacity: .3,
+            image: AssetImage("assets/one7.jpg"), opacity: .3,
             fit: BoxFit.cover,
           ),
         ),

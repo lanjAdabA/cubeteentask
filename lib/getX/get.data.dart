@@ -1,4 +1,6 @@
 
+// ignore_for_file: avoid_print, duplicate_ignore
+
 import 'package:cubetentask/model/msmeDataModel.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
@@ -27,6 +29,7 @@ Future<void> onReady() async{
 // Future<List<MsmeModel>?>
 getmsmedata()async{
 
+// ignore: avoid_print
 print("object");
 try{
    isDataLoading(true);

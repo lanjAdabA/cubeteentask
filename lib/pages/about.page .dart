@@ -26,7 +26,7 @@ class AboutScreen extends StatelessWidget {
         child: Column( mainAxisAlignment:  MainAxisAlignment.center,
           children: [ const Padding(
             padding: EdgeInsets.all(22.0),
-            child: Text("This is a test project, the task is to retrive data from an api and visually represent the retrived data via a chart, the data and information are used just for demondtration purpose and are not suppose to provide any info or lead anyone in anyway", style: TextStyle(fontSize: 22),),
+            child: Text("This is a test project, the task is to retrive data from an api and visually represent the retrived data via a chart, the data and information are used just for demonstration purpose and are not suppose to provide any information.", style: TextStyle(fontSize: 22),),
           ),
            const SizedBox(height: 20,),
             // Padding(
