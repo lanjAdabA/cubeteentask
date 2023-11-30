@@ -1,6 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api, non_constant_identifier_names, unused_field
 
 import 'dart:convert';
+import 'package:cubetentask/model/chartmodel.dart';
 import 'package:cubetentask/model/msmeDataModel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
@@ -49,33 +50,40 @@ class _ChartScreenState extends State<ChartScreen> {
                 future: getJsonFromAssets(),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
-                    return SfCartesianChart( 
-                        primaryXAxis: CategoryAxis(maximum: 34),
+                    return SfCartesianChart(                     enableAxisAnimation: true,
+                    
+                        primaryXAxis: CategoryAxis(maximum: 34,),
+                         
                         // Chart title
                         title: ChartTitle(text: 'state_wise'),
                         series: <ChartSeries<RecordFile, String>>[
 
-                          
+// //todo working
                           BarSeries<RecordFile, String>(
+                             isVisible: true,
+                              
                             dataSource: chartData,
                             xValueMapper: (RecordFile msme, _) => msme.stateUt,
                             yValueMapper: (RecordFile msme, _) => msme.working,
-                            
                           ),
                              BarSeries<RecordFile, String>(
                             dataSource: chartData,
                             xValueMapper: (RecordFile msme, _) => msme.stateUt,
                             yValueMapper: (RecordFile msme, _) => msme.closed,
-                          ),             BarSeries<RecordFile, String>(
+                          ),    
+
+                                   BarSeries<RecordFile, String>(
                             dataSource: chartData,
                             xValueMapper: (RecordFile msme, _) => msme.stateUt,
                             yValueMapper: (RecordFile msme, _) => msme.nonTraceable,
-                          ),           
+                          ),     
                             BarSeries<RecordFile, String>(
                             dataSource: chartData,
                             xValueMapper: (RecordFile msme, _) => msme.stateUt,
                             yValueMapper: (RecordFile msme, _) => msme.total,
                           ),
+
+                          //!
                         ]);
                   } else {
                     return Card(
@@ -109,15 +117,15 @@ class _ChartScreenState extends State<ChartScreen> {
   }
 }
 
-class MsmeModel {
-  MsmeModel(this.state_ut, this.working, this.closed, this.non_traceable, this._total);
+class ChartData {
+  ChartData(this.state_ut, this.working, this.closed, this.non_traceable, this.total);
 
   final String state_ut;
-  final double? working; final double? closed; final double? non_traceable; final double? _total;
+  final double? working; final double? closed; final double? non_traceable; final double? total;
 
-  factory MsmeModel.fromJson(Map<String, dynamic> parsedJson) {
-    return MsmeModel(
-      parsedJson['state_ut'],
+  factory ChartData.fromJson(Map<String, dynamic> parsedJson) {
+    return ChartData(
+      parsedJson['stateUt'],
       parsedJson['working'], parsedJson['closed'], parsedJson['non_traceable'], parsedJson['_total'],
     );
   }

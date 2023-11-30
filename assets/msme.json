@@ -1,5 +1,6 @@
  [
         {
+            "sl_no_": "1",
             "state_ut": "JAMMU & KASHMIR",
             "working": 14993,
             "closed": 1831,
@@ -7,6 +8,7 @@
             "_total": 18345
         },
         {
+            "sl_no_": "2",
             "state_ut": "HIMACHAL PRADESH",
             "working": 11931,
             "closed": 4034,

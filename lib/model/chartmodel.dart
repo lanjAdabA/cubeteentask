@@ -2,11 +2,11 @@
 
 import 'dart:convert';
 
-MsmeModel msmeModelFromJson(String str) => MsmeModel.fromJson(json.decode(str));
+Chartmodel ChartmodelFromJson(String str) => Chartmodel.fromJson(json.decode(str));
 
-String msmeModelToJson(MsmeModel data) => json.encode(data.toJson());
+String ChartmodelToJson(Chartmodel data) => json.encode(data.toJson());
 
-class MsmeModel {
+class Chartmodel {
     final String indexName;
     final String title;
     final String desc;
@@ -32,9 +32,9 @@ class MsmeModel {
     final int count;
     final String limit;
     final String offset;
-    final List<Record> records;
+    final List<RecordFile> recordFiles;
 
-    MsmeModel({
+    Chartmodel({
         required this.indexName,
         required this.title,
         required this.desc,
@@ -60,10 +60,10 @@ class MsmeModel {
         required this.count,
         required this.limit,
         required this.offset,
-        required this.records,
+        required this.recordFiles,
     });
 
-    factory MsmeModel.fromJson(Map<String, dynamic> json) => MsmeModel(
+    factory Chartmodel.fromJson(Map<String, dynamic> json) => Chartmodel(
         indexName: json["index_name"],
         title: json["title"],
         desc: json["desc"],
@@ -89,7 +89,7 @@ class MsmeModel {
         count: json["count"],
         limit: json["limit"],
         offset: json["offset"],
-        records: List<Record>.from(json["records"].map((x) => Record.fromJson(x))),
+        recordFiles: List<RecordFile>.from(json["recordFiles"].map((x) => RecordFile.fromJson(x))),
     );
 
     Map<String, dynamic> toJson() => {
@@ -118,7 +118,7 @@ class MsmeModel {
         "count": count,
         "limit": limit,
         "offset": offset,
-        "records": List<dynamic>.from(records.map((x) => x.toJson())),
+        "recordFiles": List<dynamic>.from(recordFiles.map((x) => x.toJson())),
     };
 }
 
@@ -146,15 +146,15 @@ class Field {
     };
 }
 
-class Record {
+class RecordFile {
     final String slNo;
     final String stateUt;
     final int working;
-    final dynamic closed;
-    final dynamic nonTraceable;
+    final int closed;
+    final int nonTraceable;
     final int total;
 
-    Record({
+    RecordFile({
         required this.slNo,
         required this.stateUt,
         required this.working,
@@ -163,7 +163,7 @@ class Record {
         required this.total,
     });
 
-    factory Record.fromJson(Map<String, dynamic> json) => Record(
+    factory RecordFile.fromJson(Map<String, dynamic> json) => RecordFile(
         slNo: json["sl_no_"],
         stateUt: json["state_ut"],
         working: json["working"],

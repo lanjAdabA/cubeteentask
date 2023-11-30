@@ -19,7 +19,7 @@ class DetailsScreen extends StatelessWidget {
       body: Container( height: double.infinity, width:  double.infinity,
         decoration:  const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/one7.jpg"), opacity: .3,
+            image: AssetImage("assets/one2.jpg"), opacity: .3,
             fit: BoxFit.cover,
           ),
         ),
