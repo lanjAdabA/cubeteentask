@@ -1,5 +1,6 @@
 
 import 'package:cubetentask/getX/get.data.dart';
+import 'package:cubetentask/responsive/landscape.screen.dart';
 import 'package:cubetentask/responsive/portrait.screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -35,8 +36,8 @@ class _HomeScreenState extends State<HomeScreen> {
       body:
       Obx(() => controller.isDataLoading.value? const Center(child: CircularProgressIndicator(),):
        
-       
-       const PortraitScreen(),
+       currentWidth>1080?
+       const PortraitScreen():const LandscapeScreen(),
     // )
     ));
 

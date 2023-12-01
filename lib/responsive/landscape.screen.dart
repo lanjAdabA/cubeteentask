@@ -18,32 +18,31 @@ class LandscapeScreen extends StatelessWidget {
       child: Center(
         child: Column( mainAxisAlignment:  MainAxisAlignment.start,
           children: [  const Padding(
-     padding: EdgeInsets.symmetric(horizontal:26.0, vertical: 30),
+     padding: EdgeInsets.symmetric(vertical:12.0),
      child: Column(
        children: [ 
          // Text(controller.msmedata!.title),
          
     
     
-         Text("State-wise distribution of enterprises by status of operation", style:  TextStyle(fontSize: 18),textAlign:TextAlign.center),
-                       Text("(Fourth All India Census of MSME)", style:  TextStyle(fontSize: 18),textAlign:TextAlign.center),
+         Text("State-wise distribution of enterprises by status of operation (Fourth All India Census of MSME)" , style:  TextStyle(fontSize: 18),textAlign:TextAlign.center),
     ],
      ),
           )
          ,   Column( mainAxisAlignment:  MainAxisAlignment.center,
        children: [
-          AspectRatio(aspectRatio: 1/1,
+          AspectRatio(aspectRatio: 4/1,
             child: GridView.count(
               primary: false,
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.symmetric(horizontal:20,),
               crossAxisSpacing: 10,
               shrinkWrap: true,
               mainAxisSpacing: 10,
-              crossAxisCount: 2,
+              crossAxisCount: 4,
               children: <Widget>[
                //? chart
                 GestureDetector(
-                 child: Card( elevation: 40,shadowColor: Colors.red, 
+                 child: Card( elevation: 10,shadowColor: Colors.red, 
                    child: Stack( alignment: Alignment.bottomCenter,
                      children: [
                                 Container( 
@@ -63,7 +62,7 @@ class LandscapeScreen extends StatelessWidget {
                     ),  
                     //? list
                       GestureDetector(
-                 child: Card( elevation: 40,shadowColor: Colors.red, 
+                 child: Card( elevation: 10,shadowColor: Colors.red, 
                    child: Stack( alignment: Alignment.bottomCenter,
                      children: [
                        Container(
@@ -84,7 +83,7 @@ class LandscapeScreen extends StatelessWidget {
                     
                     //? json
                        GestureDetector(
-                 child: Card( elevation: 40,shadowColor: Colors.red, 
+                 child: Card( elevation: 10,shadowColor: Colors.red, 
                    child: Stack( alignment: Alignment.bottomCenter,
                      children: [
                        Container(
@@ -104,7 +103,7 @@ class LandscapeScreen extends StatelessWidget {
                     ),  
                     //? about
                       GestureDetector(
-                 child: Card( elevation: 40,shadowColor: Colors.red, 
+                 child: Card( elevation: 10,shadowColor: Colors.red, 
                    child: Stack( alignment: Alignment.bottomCenter,
                      children: [
                        Container(
@@ -148,11 +147,11 @@ class LandscapeScreen extends StatelessWidget {
               ],
             ),
           )
-        , 
+        
      //     SizedBox( width:  MediaQuery.of(context).size.width/4,
      //       child: Image.asset("assets/QR.jpeg")),
-            const SizedBox(height: 56,)
-    ,            Row( mainAxisAlignment:  MainAxisAlignment.spaceEvenly,
+    ,            Row( mainAxisAlignment:  MainAxisAlignment.spaceEvenly
+    , crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ElevatedButton(
                        onPressed: () => context.go('/line'),
@@ -166,6 +165,7 @@ class LandscapeScreen extends StatelessWidget {
                    onPressed: () => context.go('/chart'),
                    child: const Text('Bar chart'),
                  ),
+                  const SizedBox(width: 2,)
       ],
     ), 
     
