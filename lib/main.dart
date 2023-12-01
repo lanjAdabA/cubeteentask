@@ -9,6 +9,7 @@ import 'package:cubetentask/pages/home.page.dart';
 import 'package:cubetentask/pages/linegraph.page.dart';
 import 'package:cubetentask/pages/signin.page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_launcher_icons/xml_templates.dart';
 import 'package:go_router/go_router.dart';
 
 
@@ -73,7 +74,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-       theme: ThemeData(primarySwatch: Colors.teal),
+       theme: ThemeData(primarySwatch: Colors.teal, appBarTheme:  const AppBarTheme(color: Color.fromARGB(255, 198, 198, 242))),
        debugShowCheckedModeBanner:  false
        ,
       routerConfig: _router,

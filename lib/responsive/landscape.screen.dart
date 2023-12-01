@@ -153,15 +153,15 @@ class LandscapeScreen extends StatelessWidget {
     ,            Row( mainAxisAlignment:  MainAxisAlignment.spaceEvenly
     , crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ElevatedButton(
+        ElevatedButton( style:  ElevatedButton.styleFrom(elevation: 9),
                        onPressed: () => context.go('/line'),
                        child: const Text('Line chart'),
                      ),
-              ElevatedButton(
+              ElevatedButton(style: ElevatedButton.styleFrom(elevation: 9),
                    onPressed: () => context.go('/column'),
                    child: const Text('Column chart'),
                  ),
-      ElevatedButton(
+      ElevatedButton( style:  ElevatedButton.styleFrom(elevation: 9),
                    onPressed: () => context.go('/chart'),
                    child: const Text('Bar chart'),
                  ),

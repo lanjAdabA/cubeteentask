@@ -31,8 +31,8 @@ class _SigninPageState extends State<SigninPage> {
   @override
   Widget build(BuildContext context) {
      double height = MediaQuery.of(context).size.height;
-    return Scaffold(
-            resizeToAvoidBottomInset: false,
+    return Scaffold(   
+            resizeToAvoidBottomInset: true,
             body: Center(
               child: GestureDetector(
                 onTap: () {

@@ -152,20 +152,27 @@ class PortraitScreen extends StatelessWidget {
      //     SizedBox( width:  MediaQuery.of(context).size.width/4,
      //       child: Image.asset("assets/QR.jpeg")),
             const SizedBox(height: 56,)
-    ,            Row( mainAxisAlignment:  MainAxisAlignment.spaceEvenly,
+    ,            Row( mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        ElevatedButton(
-                       onPressed: () => context.go('/line'),
-                       child: const Text('Line chart'),
-                     ),
-              ElevatedButton(
-                   onPressed: () => context.go('/column'),
-                   child: const Text('Column chart'),
-                 ),
-      ElevatedButton(
-                   onPressed: () => context.go('/chart'),
-                   child: const Text('Bar chart'),
-                 ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal:28.0),
+          child: Column( mainAxisAlignment:  MainAxisAlignment.spaceEvenly, crossAxisAlignment: CrossAxisAlignment.end,
+           children: [
+             ElevatedButton(   style:ElevatedButton.styleFrom(elevation: 9),
+                            onPressed: () => context.go('/line'),
+                            child: const Text('Line chart'),
+                          ),
+                   ElevatedButton(style: ElevatedButton.styleFrom(elevation: 9),
+                        onPressed: () => context.go('/column'),
+                        child: const Text('Column chart'),
+                      ),
+           ElevatedButton(style: ElevatedButton.styleFrom(elevation: 9),
+                        onPressed: () => context.go('/chart'),
+                        child: const Text('Bar chart'),
+                      ),
+           ],
+                ),
+        ),
       ],
     ), 
     

@@ -15,7 +15,7 @@ class Linegraph extends StatefulWidget {
 class _LinegraphState extends State<Linegraph> {
 
   late ZoomPanBehavior _zoomPanBehavior;
-  late TrackballBehavior _trackballBehavior;
+  // late TrackballBehavior _trackballBehavior;
 
     
     @override
@@ -24,11 +24,11 @@ class _LinegraphState extends State<Linegraph> {
                   // Enables pinch zooming
                   enablePinching: true
                 );
-                  _trackballBehavior = TrackballBehavior(
-                  enable: true,
-                  // Display mode of trackball tooltip
-                  tooltipDisplayMode: TrackballDisplayMode.floatAllPoints
-                );
+                //   _trackballBehavior = TrackballBehavior(
+                //   enable: true,
+                //   // Display mode of trackball tooltip
+                //   tooltipDisplayMode: TrackballDisplayMode.floatAllPoints
+                // );
                 
       super.initState();
     }
@@ -78,7 +78,7 @@ ChartData('ANDAMAN & NICOBAR ISLANDS', 750, 142, 142, 1034)
                     child: Padding(
                       padding: const EdgeInsets.only(right:18.0, top: 42),
                       child: SfCartesianChart( 
-                                        trackballBehavior: _trackballBehavior, 
+                                        // trackballBehavior: _trackballBehavior, 
 
                 zoomPanBehavior: _zoomPanBehavior,
                           primaryXAxis: CategoryAxis( maximum: 34,),

@@ -34,7 +34,7 @@ class AboutScreen extends StatelessWidget {
             //   child: Text(controller.msmedata!.toJson().toString(), style:  TextStyle( fontSize: 14, fontStyle: FontStyle.normal, fontWeight: FontWeight.bold, color: Colors.red[800]),),
             // ),
            const SizedBox(height: 20,),
-            Text(controller.msmedata!.toString()),
+         
 
             ElevatedButton(
                       onPressed: () => context.go('/'),

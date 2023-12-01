@@ -7,6 +7,13 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class Columnpage extends StatefulWidget {
+
+
+  // final String state;
+  // final double working;
+  // final double closed;
+  // final double nonTraceable;
+  // final  double total;
   const Columnpage({super.key});
   
   

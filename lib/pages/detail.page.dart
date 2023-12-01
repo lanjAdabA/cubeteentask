@@ -25,23 +25,22 @@ class DetailsScreen extends StatelessWidget {
         ),
   child: Stack( fit: StackFit.loose,
     children: [
-      Center(
-        child: Column( mainAxisAlignment:  MainAxisAlignment.center,
-          children: [ const Text("Detailed data to be shown here.", style: TextStyle(fontSize: 22),),
-           const SizedBox(height: 20,),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal:18.0),
-              child: Text(controller.msmedata!.toJson().toString(), style:  TextStyle( fontSize: 14, fontStyle: FontStyle.normal, fontWeight: FontWeight.bold, color: Colors.red[800]),),
-            ),
-           const SizedBox(height: 20,),
-            Text(controller.msmedata!.toString()),
-
-            ElevatedButton(
-                      onPressed: () => context.go('/'),
-                      child: const Text('Go to the Home screen'),
-                    ),
-          ],
+      Column( mainAxisAlignment:  MainAxisAlignment.start,
+        children: [ const Padding(
+          padding: EdgeInsets.only(top:8.0),
+          child: Text("Detailed data to be shown here.", style: TextStyle(fontSize: 22),),
         ),
+         const SizedBox(height: 20,),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal:18.0),
+            child: Text(controller.msmedata!.toJson().toString(), style:  TextStyle( fontSize: 12, fontStyle: FontStyle.normal, fontWeight: FontWeight.bold, color: Colors.red[800]),),
+          ),
+      
+          ElevatedButton(
+                    onPressed: () => context.go('/'),
+                    child: const Text('Go to the Home screen'),
+                  ),
+        ],
       ),
     ],
   ),      ),
