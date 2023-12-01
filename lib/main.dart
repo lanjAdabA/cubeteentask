@@ -2,9 +2,11 @@
 
 import 'package:cubetentask/pages/Listdata.page.dart';
 import 'package:cubetentask/pages/about.page%20.dart';
+import 'package:cubetentask/pages/chart.column.page.dart';
 import 'package:cubetentask/pages/chart.page.dart';
 import 'package:cubetentask/pages/detail.page.dart';
 import 'package:cubetentask/pages/home.page.dart';
+import 'package:cubetentask/pages/linegraph.page.dart';
 import 'package:cubetentask/pages/signin.page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -34,7 +36,7 @@ final GoRouter _router = GoRouter(
         ),    GoRoute(
           path: 'chart',
           builder: (BuildContext context, GoRouterState state) {
-            return  ChartScreen();
+            return  const ChartScreen();
           },
         ),GoRoute(
           path: 'list',
@@ -45,6 +47,17 @@ final GoRouter _router = GoRouter(
           path: 'about',
           builder: (BuildContext context, GoRouterState state) {
             return const AboutScreen();
+          },
+        ),
+          GoRoute(
+          path: 'line',
+          builder: (BuildContext context, GoRouterState state) {
+            return const Linegraph();
+          },
+        ), GoRoute(
+          path: 'column',
+          builder: (BuildContext context, GoRouterState state) {
+            return const Columnpage();
           },
         ),
       ],
@@ -60,6 +73,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+       theme: ThemeData(primarySwatch: Colors.teal),
        debugShowCheckedModeBanner:  false
        ,
       routerConfig: _router,

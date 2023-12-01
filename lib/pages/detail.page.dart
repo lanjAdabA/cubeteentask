@@ -19,7 +19,7 @@ class DetailsScreen extends StatelessWidget {
       body: Container( height: double.infinity, width:  double.infinity,
         decoration:  const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/one2.jpg"), opacity: .3,
+            image: AssetImage("assets/one7.jpg"), opacity: .3,
             fit: BoxFit.cover,
           ),
         ),
@@ -37,7 +37,7 @@ class DetailsScreen extends StatelessWidget {
             Text(controller.msmedata!.toString()),
 
             ElevatedButton(
-                      onPressed: () => context.go('/home'),
+                      onPressed: () => context.go('/'),
                       child: const Text('Go to the Home screen'),
                     ),
           ],
@@ -50,16 +50,5 @@ class DetailsScreen extends StatelessWidget {
 
 
 
-    // return Scaffold(
-    //   appBar: AppBar(title: const Text('Details Screen')),
-    //   body: Container( color:  Colors.blue[100],
-    //     child: Center(
-    //       child: ElevatedButton(
-    //         onPressed: () => context.go('/'),
-    //         child: const Text('Go back to the Home screen'),
-    //       ),
-    //     ),
-    //   ),
-    // );
   }
 }

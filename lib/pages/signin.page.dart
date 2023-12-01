@@ -201,7 +201,7 @@ class _SigninPageState extends State<SigninPage> {
                               if (userNameController.text=="admin" && passwordController.text=="admin"   
                               ) {
                                  log("paswrd and userid field");
-                                context.go('/home');
+                                context.go('/');
                               } else {
                                     log("_login_error_empty field/fields");
                                     showDialog(
@@ -233,7 +233,7 @@ class _SigninPageState extends State<SigninPage> {
                       SizedBox(
                         height: height / 24,
                       ),
-                        GestureDetector( onTap:()=>context.go('/home') ,
+                        GestureDetector( onTap:()=>context.go('/') ,
                           child: const Center(
                           child: Text(
                             "Login as GUEST",

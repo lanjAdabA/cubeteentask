@@ -37,7 +37,7 @@ class AboutScreen extends StatelessWidget {
             Text(controller.msmedata!.toString()),
 
             ElevatedButton(
-                      onPressed: () => context.go('/home'),
+                      onPressed: () => context.go('/'),
                       child: const Text('Go to the Home screen'),
                     ),
           ],
