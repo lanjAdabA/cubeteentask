@@ -155,14 +155,16 @@ class _ChartScreenState extends State<ChartScreen> {
     @override
     void initState(){
       _zoomPanBehavior = ZoomPanBehavior(
-                  // Enables pinch zooming
-                  enablePinching: true
-                  //  enablePanning: true
+                  enablePinching: true,
+                   enablePanning: true,
+                    zoomMode: ZoomMode.y,
+                   enableSelectionZooming: true,
+                    enableDoubleTapZooming: true
                 );
-                  // _trackballBehavior = TrackballBehavior(
-                  // enable: true,
-                  // Display mode of trackball tooltip
-                  // tooltipDisplayMode: TrackballDisplayMode.floatAllPoints
+                //   _trackballBehavior = TrackballBehavior(
+                //   enable: true,
+                //   // Display mode of trackball tooltip
+                //   tooltipDisplayMode: TrackballDisplayMode.floatAllPoints
                 // );
                 
       super.initState();
@@ -212,7 +214,7 @@ ChartData('ANDAMAN & NICOBAR ISLANDS', 750, 142, 142, 1034)
                 child: Container(
                     child: Padding(
                       padding: const EdgeInsets.only(right:18.0, top: 42),
-                      child: SfCartesianChart( 
+                      child: SfCartesianChart( tooltipBehavior: TooltipBehavior(enable: true),
                         
                 zoomPanBehavior: _zoomPanBehavior,
                           primaryXAxis: CategoryAxis( maximum: 34,),

@@ -31,9 +31,11 @@ class _ColumnpageState extends State<Columnpage> {
     @override
     void initState(){
       _zoomPanBehavior = ZoomPanBehavior(
-                  // Enables pinch zooming
-                  enablePinching: true
-                  //  enablePanning: true
+                  enablePinching: true,
+                   enablePanning: true,
+                    zoomMode: ZoomMode.x,
+                   enableSelectionZooming: true,
+                    enableDoubleTapZooming: true
                 );
                 //   _trackballBehavior = TrackballBehavior(
                 //   enable: true,
@@ -88,7 +90,7 @@ ChartData('ANDAMAN & NICOBAR ISLANDS', 750, 142, 142, 1034)
                 child: Container(
                     child: Padding(
                       padding: const EdgeInsets.only(right:18.0, top: 42),
-                      child: SfCartesianChart( 
+                      child: SfCartesianChart(  tooltipBehavior: TooltipBehavior(enable: true),
                         
                 zoomPanBehavior: _zoomPanBehavior,
                           primaryXAxis: CategoryAxis( maximum: 34,),

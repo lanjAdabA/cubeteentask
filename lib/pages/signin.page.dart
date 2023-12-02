@@ -31,16 +31,16 @@ class _SigninPageState extends State<SigninPage> {
   @override
   Widget build(BuildContext context) {
      double height = MediaQuery.of(context).size.height;
-    return Scaffold(   
-            resizeToAvoidBottomInset: true,
+    return Scaffold(  
+            resizeToAvoidBottomInset: false,
             body: Center(
               child: GestureDetector(
                 onTap: () {
                   _focusNodePassword.unfocus();
                   _focusNodeEmail.unfocus();
                 },
-                child: Container(
-                  color: const Color.fromARGB(255, 219, 221, 220),
+                child: Container( height: height,
+                  color:  const Color.fromARGB(255, 239, 228, 243),
                   child: Column(
                     children: [
                       SizedBox(

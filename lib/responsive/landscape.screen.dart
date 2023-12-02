@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -17,15 +18,35 @@ class LandscapeScreen extends StatelessWidget {
      ),
       child: Center(
         child: Column( mainAxisAlignment:  MainAxisAlignment.start,
-          children: [  const Padding(
-     padding: EdgeInsets.symmetric(vertical:12.0),
+          children: [   Padding(
+     padding: const EdgeInsets.symmetric(vertical:12.0),
      child: Column(
        children: [ 
          // Text(controller.msmedata!.title),
          
     
     
-         Text("State-wise distribution of enterprises by status of operation (Fourth All India Census of MSME)" , style:  TextStyle(fontSize: 18),textAlign:TextAlign.center),
+          // todo <_
+          DefaultTextStyle( 
+    style:  const TextStyle(letterSpacing: 2,
+     color: Colors.black54,
+      fontSize: 16.0,
+      fontFamily: 'Agne',
+    ),
+    child:
+     AnimatedTextKit(
+
+      animatedTexts: [
+        TypewriterAnimatedText('State-wise distribution of enterprises by status of operation (Fourth All India Census of MSME)'),
+       
+      ],
+      onTap: () {
+        print("Tap Event");
+      },
+    ),
+  ),
+  //todo _>
+    
     ],
      ),
           )
